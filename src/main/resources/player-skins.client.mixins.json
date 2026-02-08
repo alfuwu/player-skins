@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "package": "com.alfred.playerskins.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientPlayerEntityMixin",
+    "HeldItemRendererMixin",
+    "MinecraftAccessor",
+    "ModelPartMixin",
+    "OtherPlayerEntityMixin",
+    "PlayerEntityRendererMixin",
+    "ResourceDownloadThreadMixin",
+    "SkinImageProcessorMixin",
+    "TextureManagerAccessor",
+    "WorldMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "PlayerEntityMixin"
+  ]
+}

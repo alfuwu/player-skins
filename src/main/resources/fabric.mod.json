@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "player-skins",
+  "version": "${version}",
+
+  "name": "Player Skins",
+  "description": "restores player skins to minecraft beta",
+  "authors": [
+    "alfred"
+  ],
+  "contact": {
+    "sources": "https://github.com/alfuwu/player-skins"
+  },
+
+  "license": "MIT",
+  "icon": "assets/player-skins/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "stationapi:event_bus": [
+      "com.alfred.playerskins.events.init.InitListener"
+    ],
+    "stationapi:event_bus_client": [
+    ],
+    "stationapi:event_bus_server": [
+    ]
+  },
+  "mixins": [
+    {
+      "config": "player-skins.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_163": [ "com/alfred/playerskins/interfaces/PlayerQuaddablePart" ]
+    }
+  },
+  "depends": {
+    "minecraft": "1.0.0-beta.7.3"
+  }
+}
