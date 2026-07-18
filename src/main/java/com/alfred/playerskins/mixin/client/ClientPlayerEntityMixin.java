@@ -19,7 +19,6 @@ public abstract class ClientPlayerEntityMixin implements AdvancedPlayerModel {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void fixSkinTexture(Minecraft world, World session, Session dimensionId, int par4, CallbackInfo ci) {
-        ((PlayerEntity)(Object)this).name = "slyprae";
         Util.loadTextures((PlayerEntity)(Object)this);
     }
 
