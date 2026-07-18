@@ -43,11 +43,10 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer {
 
     @Inject(method = "renderHand", at = @At("TAIL"))
     private void renderSleeveOnHand(CallbackInfo ci) {
-        if (!(this.bipedModel instanceof PlayerEntityModel)) return;
-        PlayerEntityModel model = (PlayerEntityModel) this.bipedModel;
-        if (model.rightSleeve == null) return;
+        if (!(this.bipedModel instanceof PlayerEntityModel mod)) return;
+        if (mod.rightSleeve == null) return;
         GL11.glDisable(GL11.GL_CULL_FACE);
-        model.rightSleeve.render(0.0625F);
+        mod.rightSleeve.render(0.0625F);
         GL11.glEnable(GL11.GL_CULL_FACE);
     }
 
