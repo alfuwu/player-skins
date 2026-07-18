@@ -10,6 +10,7 @@ import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.texture.ImageDownload;
 import net.minecraft.entity.player.PlayerEntity;
+import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -38,6 +39,16 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer {
     @Inject(method = "renderHand", at = @At("HEAD"))
     private void changeModelHand(CallbackInfo ci) {
         changeModel(MinecraftAccessor.getInstance().player);
+    }
+
+    @Inject(method = "renderHand", at = @At("TAIL"))
+    private void renderSleeveOnHand(CallbackInfo ci) {
+        if (!(this.bipedModel instanceof PlayerEntityModel)) return;
+        PlayerEntityModel model = (PlayerEntityModel) this.bipedModel;
+        if (model.rightSleeve == null) return;
+        GL11.glDisable(GL11.GL_CULL_FACE);
+        model.rightSleeve.render(0.0625F);
+        GL11.glEnable(GL11.GL_CULL_FACE);
     }
 
     @Unique

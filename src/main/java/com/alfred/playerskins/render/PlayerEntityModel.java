@@ -29,7 +29,7 @@ public class PlayerEntityModel extends BipedEntityModel {
 
         int armSize = slim && !classic ? 3 : 4;
         leftSleeve = create(48, 48, -1, -2, -2, armSize, 12, 4, 0.25f, 5.0f, 2.5f, 0.0f);
-        rightSleeve = create(40, 32, -2, -2, -2, armSize, 12, 4, 0.25f, -5.0f, 2.5f, 0.0f);
+        rightSleeve = create(40, 32, -3, -2, -2, armSize, 12, 4, 0.25f, -5.0f, 2.5f, 0.0f);
         leftPants = create(0, 48, -2, 0, -2, 4, 12, 4, 0.25f, 1.9f, 12.0f, 0.0f);
         rightPants = create(0, 32, -2, 0, -2, 4, 12, 4, 0.25f, -1.9f, 12.0f, 0.0f);
         jacket = create(16, 32, -4, 0, -2, 8, 12, 4, 0.25f);
